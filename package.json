@@ -1,8 +1,8 @@
 {
   "name": "typings-autoinstaller",
   "displayName": "Typings auto installer",
-  "description": "Any time you save either package.json the typings package will be installed/uninstalled automatically in the background.",
-  "version": "0.0.2",
+  "description": "Any time you save either package.json or bower.json the typings package will be installed/uninstalled automatically in the background.",
+  "version": "0.0.3",
   "publisher": "jvitor83",
   "author": {
     "name": "Joao Vitor Paes de Barros do Carmo [https://about.me/jvitor83]"
@@ -10,7 +10,7 @@
   "engines": {
     "vscode": "^0.10.6"
   },
-  "icon": "images/packageWatcherIcon.png",
+  "icon": "images/Typings-AutoInstaller-Icon2.png",
   "categories": [
     "Other"
   ],

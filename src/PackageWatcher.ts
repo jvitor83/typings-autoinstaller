@@ -48,6 +48,10 @@ export class PackageWatcher {
     }
 
     private exisitsPackage(dependencies: Dependency, key: string): boolean {
-        return !dependencies.hasOwnProperty(key);
+        if(dependencies != null)
+        {
+            return !dependencies.hasOwnProperty(key);
+        }
+        return false;
     }
 }
