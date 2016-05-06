@@ -23,9 +23,18 @@
     "url": "https://github.com/jvitor83/typings-autoinstaller.git"
   },
   "activationEvents": [
-    "workspaceContains:package.json"
+    "workspaceContains:package.json",
+    "onCommand:extension.installAllDependencies"
   ],
   "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.installAllDependencies",
+        "title": "Typings: Install definitions for all dependencies"
+      }
+    ]
+  },
   "scripts": {
     "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
