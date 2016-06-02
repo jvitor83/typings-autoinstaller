@@ -14,7 +14,7 @@ export class TypingsService {
                 saveString = "--save-dev";
             }
 
-            let command = `typings install ${key} --ambient ` + saveString;
+            let command = `typings install dt~${key} --global ` + saveString;
 
             let installProcess = childProcess.exec(command, { cwd: this.rootPath, env: process.env });
             installProcess.stderr.on("data", (stateMessage) => {
@@ -37,7 +37,7 @@ export class TypingsService {
                 saveString = "--save-dev";
             }
 
-            let command = `typings uninstall ${key} --ambient ` + saveString;
+            let command = `typings uninstall ${key} --global ` + saveString;
             
             let installProcess = childProcess.exec(command, { cwd: this.rootPath, env: process.env });
             installProcess.stderr.on("data", (stateMessage) => {

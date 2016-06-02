@@ -10,7 +10,7 @@ let outputChannel: vscode.OutputChannel;
 let typingsService: TypingsService;
 
 export function activate(context: vscode.ExtensionContext) {
-    outputChannel = vscode.window.createOutputChannel("Package watcher");
+    outputChannel = vscode.window.createOutputChannel("Typings AutoInstaller Watcher");
     context.subscriptions.push(outputChannel);
 
     startNpmWatch(context);
