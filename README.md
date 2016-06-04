@@ -1,4 +1,11 @@
 # Package watcher for Visual Studio Code
+
+> Breaking changes on [Typings](https://github.com/typings/typings) from version 0.x to version 1.x.
+
+> - Only update the extension to (this) version 1.x if you have Typings version 1.x installed globally (consider the breaking change on your projects).
+
+> More info at: [https://github.com/typings/typings](https://github.com/typings/typings)
+
 ## Installation 
 You can browse and install extensions from within VS Code. Press `Ctrl+P` and narrow down the list commands by typing `ext install typings-autoinstaller`.
 
