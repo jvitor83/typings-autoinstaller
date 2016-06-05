@@ -87,7 +87,7 @@ export class TypingsService {
 
         childProcess.exec(command, { cwd: rootPath, env: process.env }, (error, stdout, sterr) => {
             if (sterr && sterr.indexOf('typings ERR!') > -1) {
-                if (sterr.match(/typings ERR! message Typings for "[^"]*" are not listed in global .* dependencies/g)) {
+                if (sterr.match(/typings ERR! message Typings for "[^"]*" are not listed in global.*dependencies/g)) {
                     stateCallback(`Typings for package '${key}' not installed\n\n`);
                 } else {
                     stateCallback(sterr);
