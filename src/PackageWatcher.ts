@@ -31,6 +31,40 @@ export class PackageWatcher {
             }
         }
 
+        if(this.packageJson.devDependencies == undefined)
+        {
+            for (let key in changedPackage.devDependencies) 
+            {
+                newPackages.devDependencies[key] = changedPackage.devDependencies[key];
+            }
+        }
+
+
+        if(this.packageJson.dependencies == undefined)
+        {
+            for (let key in changedPackage.dependencies) 
+            {
+                newPackages.dependencies[key] = changedPackage.dependencies[key];
+            }
+        }
+
+
+        if(changedPackage.dependencies == undefined)
+        {
+            for (let key in this.packageJson.dependencies) 
+            {
+                deletedPackes.dependencies[key] = this.packageJson.dependencies[key];
+            }
+        }
+
+        if(changedPackage.devDependencies == undefined)
+        {
+            for (let key in this.packageJson.devDependencies) 
+            {
+                deletedPackes.devDependencies[key] = this.packageJson.devDependencies[key];
+            }
+        }
+
         for (let key in this.packageJson.dependencies) {
             if (this.exisitsPackage(changedPackage.dependencies, key)) {
                 deletedPackes.dependencies[key] = this.packageJson.dependencies[key];
