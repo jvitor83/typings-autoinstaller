@@ -122,8 +122,8 @@ function startBowerWatch(context: vscode.ExtensionContext) {
 }
 
 function installPackages(packageJson: Package, callback: any) {
-    typingsService.install(packageJson.dependencies, false, writeOutput, (counta) => {
-        typingsService.install(packageJson.devDependencies, true, writeOutput, (countb) => callback(counta + countb));
+    typingsService.install(packageJson.dependencies || {}, false, writeOutput, (counta) => {
+        typingsService.install(packageJson.devDependencies || {}, true, writeOutput, (countb) => callback(counta + countb));
     });
 
 }
