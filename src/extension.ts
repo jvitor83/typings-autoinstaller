@@ -30,7 +30,7 @@ function installAllDependencies(context: vscode.ExtensionContext) {
         installPackages(packageJson, (count) => {
             writeOutput(`Installed Typings of ${count} npm package(s)\n`);
             readBower();
-        });
+        }, true);
     }, () => {
         readBower();
     });
@@ -121,7 +121,10 @@ function startBowerWatch(context: vscode.ExtensionContext) {
     context.subscriptions.push(watcher);
 }
 
-function installPackages(packageJson: Package, callback: any) {
+function installPackages(packageJson: Package, callback: any, installEngines: boolean = false) {
+    if(installEngines){
+        typingsService.install(packageJson.engines || {}, false, writeOutput, (counte) => {});
+    }
     typingsService.install(packageJson.dependencies || {}, false, writeOutput, (counta) => {
         typingsService.install(packageJson.devDependencies || {}, true, writeOutput, (countb) => callback(counta + countb));
     });
