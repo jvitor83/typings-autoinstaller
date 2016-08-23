@@ -63,10 +63,10 @@ function startNpmWatch(context: vscode.ExtensionContext) {
             npmPackageWatcher.changed(packageJson, (newPackages, deletedPackes) => {
                 // Install
                 installPackages(newPackages, (count) => {
-                    if(count) writeOutput(`Installed Typings of ${count} npm package(s)\n`)
+                    if (count) writeOutput(`Installed Typings of ${count} npm package(s)\n`)
                     // Uninstall
                     uninstallPackages(deletedPackes, (count) => {
-                        if(count) writeOutput(`Uninstalled Typings of ${count} npm package(s)\n`)
+                        if (count) writeOutput(`Uninstalled Typings of ${count} npm package(s)\n`)
                     });
                 });
             });
@@ -108,10 +108,10 @@ function startBowerWatch(context: vscode.ExtensionContext) {
             bowerPackageWatcher.changed(bowerJson, (newPackages, deletedPackes) => {
                 // Install
                 installPackages(newPackages, (count) => {
-                    if(count) writeOutput(`Installed Typings of ${count} bower package(s)\n`)
+                    if (count) writeOutput(`Installed Typings of ${count} bower package(s)\n`)
                     // Uninstall
                     uninstallPackages(deletedPackes, (count) => {
-                        if(count) writeOutput(`Uninstalled Typings of ${count} bower package(s)\n`)
+                        if (count) writeOutput(`Uninstalled Typings of ${count} bower package(s)\n`)
                     });
                 });
             });
@@ -122,19 +122,29 @@ function startBowerWatch(context: vscode.ExtensionContext) {
 }
 
 function installPackages(packageJson: Package, callback: any, installEngines: boolean = false) {
-    if(installEngines){
-        typingsService.install(packageJson.engines || {}, false, writeOutput, (counte) => {});
-    }
+    // if(installEngines){
+    //     typingsService.install(packageJson.engines || {}, false, writeOutput, (counte) => {});
+    // }
+    
     typingsService.install(packageJson.dependencies || {}, false, writeOutput, (counta) => {
-        typingsService.install(packageJson.devDependencies || {}, true, writeOutput, (countb) => callback(counta + countb));
+        typingsService.install(packageJson.devDependencies || {}, true, writeOutput, (countb) => {
+            typingsService.install(packageJson.engines || {}, false, writeOutput, (countc) => callback(counta + countb + countc));
+        });
     });
 
 }
 
 function uninstallPackages(packageJson: Package, callback: any) {
-    typingsService.uninstall(packageJson.dependencies, false, writeOutput, (counta) => {
-        typingsService.uninstall(packageJson.devDependencies, true, writeOutput, (countb) => callback(counta + countb));
+
+    typingsService.uninstall(packageJson.dependencies || {}, false, writeOutput, (counta) => {
+        typingsService.uninstall(packageJson.devDependencies || {}, true, writeOutput, (countb) => {
+            typingsService.uninstall(packageJson.engines || {}, false, writeOutput, (countc) => callback(counta + countb + countc));
+        });
     });
+
+    // typingsService.uninstall(packageJson.dependencies, false, writeOutput, (counta) => {
+    //     typingsService.uninstall(packageJson.devDependencies, true, writeOutput, (countb) => callback(counta + countb));
+    // });
 }
 
 function isBowerWatcherDeactivated() {
