@@ -11,7 +11,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -20,7 +21,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -39,7 +41,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -49,7 +52,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -69,7 +73,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -80,7 +85,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -100,7 +106,8 @@ suite("package-watcher Tests", () => {
                 "json2ts": "^0.0.7"
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -109,7 +116,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -128,7 +136,8 @@ suite("package-watcher Tests", () => {
                 "json2ts": "^0.0.7"
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -138,7 +147,8 @@ suite("package-watcher Tests", () => {
             devDependencies: {
                 "vscode": "^0.11.0",
                 "typescript": "*"
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -158,14 +168,16 @@ suite("package-watcher Tests", () => {
                 "json2ts": "^0.0.7"
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
             dependencies: {
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -185,14 +197,16 @@ suite("package-watcher Tests", () => {
                 "rxjs": "*"
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
             dependencies: {
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -213,7 +227,8 @@ suite("package-watcher Tests", () => {
             },
             devDependencies: {
                 "vscode": "^0.11.0"
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -221,7 +236,8 @@ suite("package-watcher Tests", () => {
                 "json2ts": "^0.0.7"
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -242,7 +258,8 @@ suite("package-watcher Tests", () => {
             devDependencies: {
                 "vscode": "^0.11.0",
                 "typescript": "*"
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -250,7 +267,8 @@ suite("package-watcher Tests", () => {
                 "json2ts": "^0.0.7"
             },
             devDependencies: {
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
@@ -272,7 +290,8 @@ suite("package-watcher Tests", () => {
             devDependencies: {
                 "vscode": "^0.11.0",
                 "typescript": "*"
-            }
+            },
+            engines: {}
         };
 
         let changedPackageJson: Package = {
@@ -282,7 +301,8 @@ suite("package-watcher Tests", () => {
             devDependencies: {
                 "vscode": "^0.11.0",
                 "gulp": "*"
-            }
+            },
+            engines: {}
         };
 
         let packageWatcher = new PackageWatcher(packageJson);
